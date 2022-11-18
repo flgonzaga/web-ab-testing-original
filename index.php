@@ -3,7 +3,7 @@
 $experimentId = '3uvylVSkSv-aNskBLmFwRw';
 
 // Randomly picks a variant for the user.
-$variationId = rand(0, 1);
+$variationId = 0; //rand(0, 1);
 ?>
 <html lang="en">
 <head>
