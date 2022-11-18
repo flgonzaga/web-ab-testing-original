@@ -1,10 +1,4 @@
-<?php
-// Sets the ID of the experiment on variants of this web page.
-$experimentId = '3uvylVSkSv-aNskBLmFwRw';
-
-// Randomly picks a variant for the user.
-$variationId = 0; //rand(0, 1);
-?>
+<?php include('optimize.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,23 +8,18 @@ $variationId = 0; //rand(0, 1);
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-7NYMGM621S');
+
+  gtag('set', 'exp', 'uvylVSkSv-aNskBLmFwRw.0');
 </script>
-<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
+
 <body>
-    <!-- Content -->
-    <script>
-        gtag('event', 'experiment_impression', {​
-        'experiment_id': '3uvylVSkSv-aNskBLmFwRw',
-        'variant_id': '3uvylVSkSv-aNskBLmFwRw.0',
-        'send_to': 'G-7NYMGM621S',
-        });
-    </script>
     <style>
         body {
             background-color: black;
