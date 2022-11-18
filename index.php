@@ -8,7 +8,6 @@
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
-<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -18,6 +17,7 @@
 
   gtag('set', {'experiments': [{'id': '3uvylVSkSv-aNskBLmFwRw', 'variant': '0'}]});
 </script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <body>
     <style>
         body {
