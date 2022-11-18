@@ -13,13 +13,13 @@ $variationId = 0; //rand(0, 1);
     <title>Home Page - Original</title>
 </head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KGNTHNK"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){window.dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'GTM-KGNTHNK');
+  gtag('config', 'G-7NYMGM621S');
 </script>
 <body>
     <!-- Content -->
