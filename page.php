@@ -25,8 +25,8 @@ $variationId = 0; //rand(0, 1);
     <!-- Content -->
     <script>
         gtag('event', 'experiment_impression', {​
-        'experiment_id': '$experimentId',
-        'variant_id': '$experimentId.$variantid',
+        'experiment_id': '3uvylVSkSv-aNskBLmFwRw',
+        'variant_id': '3uvylVSkSv-aNskBLmFwRw.0',
         'send_to': 'GA_MEASUREMENT_ID',
         });
     </script>
