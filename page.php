@@ -16,18 +16,19 @@ $variationId = 0; //rand(0, 1);
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-7NYMGM621S');
 </script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <body>
     <!-- Content -->
     <script>
         gtag('event', 'experiment_impression', {​
         'experiment_id': '3uvylVSkSv-aNskBLmFwRw',
         'variant_id': '3uvylVSkSv-aNskBLmFwRw.0',
-        'send_to': 'GA_MEASUREMENT_ID',
+        'send_to': 'G-7NYMGM621S',
         });
     </script>
     <style>
