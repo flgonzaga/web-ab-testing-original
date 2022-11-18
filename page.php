@@ -16,7 +16,7 @@
 
   gtag('config', 'G-7NYMGM621S');
 
-  gtag('set', 'exp', 'uvylVSkSv-aNskBLmFwRw.0');
+  gtag('set', {'experiments': [{'id': '3uvylVSkSv-aNskBLmFwRw', 'variant': '0'}]});
 </script>
 
 <body>
