@@ -1,3 +1,10 @@
+<?php
+// Sets the ID of the experiment on variants of this web page.
+$experimentId = '3uvylVSkSv-aNskBLmFwRw';
+
+// Randomly picks a variant for the user.
+$variationId = rand(0, 1);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,16 +13,23 @@
     <title>Page 1 - Original</title>
 </head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KGNTHNK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){window.dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-7NYMGM621S');
+  gtag('config', 'GTM-KGNTHNK');
 </script>
-<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <body>
+    <!-- Content -->
+    <script>
+        gtag('event', 'experiment_impression', {​
+        'experiment_id': '$experimentId',
+        'variant_id': '$experimentId.$variantid',
+        'send_to': 'GA_MEASUREMENT_ID',
+        });
+    </script>
     <style>
         body {
             background-color: black;
@@ -30,6 +44,6 @@
     </style>
     <h1>Page 1</h1>
     <p>Original version has been loaded.</p>
-    <a href="index.html">Back to Home Page</a>
+    <a href="/">Back to Home Page</a>
 </body>
 </html>
