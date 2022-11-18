@@ -15,7 +15,12 @@
 
   gtag('config', 'G-7NYMGM621S');
 
-  gtag('set', {'experiments': [{'id': '3uvylVSkSv-aNskBLmFwRw', 'variant': '0'}]});
+  //gtag('set', {'experiments': [{'id': '3uvylVSkSv-aNskBLmFwRw', 'variant': '0'}]});
+  const experimentId = '3uvylVSkSv-aNskBLmFwRw';
+  const experimentVariation = 0;
+  window.gtag('config', 'G-7NYMGM621S', {
+    experiments: [{ id: experimentId, variant: experimentVariation }],
+  });
 </script>
 <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <body>
