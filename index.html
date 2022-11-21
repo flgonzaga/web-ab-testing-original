@@ -1,4 +1,3 @@
-<?php include('optimize.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,13 +9,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        dataLayer.push(
-        'event': 'optimize-activate', 
-        'optimize-experimentId': '<?php echo $experimentId ?>', 
-        'optimize-variationId': '<?php echo $variationId ?>'
-    );}
-
+    
     gtag('js', new Date());
 
     gtag('config', 'G-7NYMGM621S');
@@ -30,7 +23,6 @@
             color: white;
             text-align: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin-top: 20%;
         }
         a {
             color:#ff1122;
@@ -38,6 +30,6 @@
     </style>
     <h1>Hello World</h1>
     <p>Original version has been loaded.</p>
-    <a href="page.php">Go to page</a>
+    <a href="page.html">Go to page</a>
 </body>
 </html>
