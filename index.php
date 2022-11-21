@@ -10,8 +10,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(
-        'event': 'optimize-experiment', 
+    function gtag(){
+        dataLayer.push(
+        'event': 'optimize-activate', 
         'optimize-experimentId': '<?php echo $experimentId ?>', 
         'optimize-variationId': '<?php echo $variationId ?>'
     );}
