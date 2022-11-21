@@ -15,11 +15,11 @@
 
   gtag('config', 'G-7NYMGM621S');
 
-  //gtag('set', {'experiments': [{'id': '3uvylVSkSv-aNskBLmFwRw', 'variant': '0'}]});
-  const experimentId = '3uvylVSkSv-aNskBLmFwRw';
-  const experimentVariation = 0;
-  window.gtag('config', 'G-7NYMGM621S', {
-    experiments: [{ id: experimentId, variant: experimentVariation }],
+  gtag('set', '_gaexp', {
+    value: 'GAX1.3.3uvylVSkSv-aNskBLmFwRw.19352.0',
+    cookie_domain: 'web-ab-experiments.azurewebsites.net',
+    cookie_expires: 93 * 24 * 60 * 60, // 28 days, in seconds
+    cookie_update: true
   });
 </script>
 <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
