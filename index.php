@@ -9,18 +9,17 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NYMGM621S"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(
+        'event': 'optimize-experiment', 
+        'optimize-experimentId': '<?php echo $experimentId ?>', 
+        'optimize-variationId': '<?php echo $variationId ?>'
+    );}
 
-  gtag('config', 'G-7NYMGM621S');
+    gtag('js', new Date());
 
-  gtag('set', '_gaexp', {
-    value: 'GAX1.3.3uvylVSkSv-aNskBLmFwRw.19352.0',
-    cookie_domain: 'web-ab-experiments.azurewebsites.net',
-    cookie_expires: 93 * 24 * 60 * 60, // 28 days, in seconds
-    cookie_update: true
-  });
+    gtag('config', 'G-7NYMGM621S');
+
 </script>
 <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BGTTHQ"></script>
 <body>
