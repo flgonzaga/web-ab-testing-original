@@ -50,8 +50,8 @@
         let expires = "expires="+ d.toUTCString();
 
         console.log(expires);
-        document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
-        document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
+        document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "; path=/";
+        document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "; path=/";
     </script>
     <style>
         body {
