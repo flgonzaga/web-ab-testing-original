@@ -49,7 +49,14 @@
         d.setTime(d.getTime() + (365*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
 
-        console.log(expires);
+        
+        gtag('config', 'TAG_ID', {
+            cookie_domain: '.' + location.hotname,
+            cookie_prefix: 'x-ms-routing-name',
+            cookie_update: true,
+            cookie_expires: 365 * 24 * 60 * 60 // 28 days, in seconds
+        });
+
         // document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "; path=/";
         // document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "; path=/";
     </script>
