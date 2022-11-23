@@ -34,11 +34,13 @@
         }
         
         // setCookie('x-ms-routing-name', getCookie('x-ms-routing-name'), 365);
-        let date = new Date();
-        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + date.toUTCString();
+        const d = new Date();
+        d.setTime(d.getTime() + (365*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+
         console.log(expires);
         document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=." + location.hostname + "path=/";
+        document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=." + location.hostname + "path=/";
 
     </script>
 </head>
