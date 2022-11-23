@@ -50,7 +50,7 @@
         d.setTime(d.getTime() + (365*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
         
-        document.cookie = "x-ms-routing-name=" + cookieValue + ";" + expires + ";domain=" + location.hostname + ";path=/;HttpOnly=false;";
+        document.cookie = "x-ms-routing-name=" + cookieValue + ";" + expires + ";domain=" + location.hostname + ";path=/";
 
     </script>
     <style>
