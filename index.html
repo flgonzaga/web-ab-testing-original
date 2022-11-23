@@ -34,14 +34,6 @@
         }
         
         // setCookie('x-ms-routing-name', getCookie('x-ms-routing-name'), 365);
-        const d = new Date();
-        d.setTime(d.getTime() + (365*24*60*60*1000));
-        let expires = "expires="+ d.toUTCString();
-
-        console.log(expires);
-        document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
-        document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
-
     </script>
 </head>
 <body>
@@ -51,7 +43,15 @@
             'experiment_id': 'hA8zNR0GTFGIxr2jWnU1UA',
             'variant_id': 'hA8zNR0GTFGIxr2jWnU1UA.0',
             'sent_to': 'G-7NYMGM621S',
-        })
+        });
+
+        const d = new Date();
+        d.setTime(d.getTime() + (365*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+
+        console.log(expires);
+        document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
+        document.cookie = "x-ms-routing-name-test=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=" + location.hostname + "path=/";
     </script>
     <style>
         body {
