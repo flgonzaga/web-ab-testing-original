@@ -35,7 +35,7 @@
         
         // setCookie('x-ms-routing-name', getCookie('x-ms-routing-name'), 365);
         let date = new Date();
-        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
         const expires = "expires=" + date.toUTCString();
         console.log(expires);
         document.cookie = "x-ms-routing-name=" + getCookie('x-ms-routing-name') + "; " + expires + "; domain=." + location.hostname + "path=/";
