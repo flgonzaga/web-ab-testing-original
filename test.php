@@ -1,9 +1,6 @@
 <?php
-if(!isset($_SESSION)) {
-    session_start();
-    echo 'Session started.';
-}
-
+ini_set("session.cookie_secure", 1);
+session_start();
 if (isset($_COOKIE['x-ms-routing-name'])) {
     $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
