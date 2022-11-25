@@ -26,7 +26,7 @@ class TestAB
     //kill the cookie
     public function killCookie($cookieName, $cookieValue)
     {
-        %this->setUserCookie($cookieName, $cookieValue, time() - 3600);
+        $this->setUserCookie($cookieName, $cookieValue, time() - 3600);
     }
 
     //Keep cookie alive
