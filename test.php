@@ -1,34 +1,54 @@
 <?php
-if (isset($_COOKIE['x-ms-routing-name'])) {
-    $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
-    //kill original cookie
-    $arr_cookie_options = array (
-        'expires' => time() - 3600,
-        'path' => '/',
-        'domain' => '.web-ab-experiments.azurewebsites.net', // leading dot for compatibility or use subdomain
-        'secure' => true,     // or false
-        'httponly' => true,    // or false
-        'samesite' => 'None' // None || Lax  || Strict
-    );
-    setcookie('x-ms-routing-name', 'self', $arr_cookie_options); 
-    
-    //Create new cookie
-    $arr_cookie_options = array (
-        'expires' => time() + 60*60*24*365,
-        'path' => '/',
-        'domain' => '.web-ab-experiments.azurewebsites.net', // leading dot for compatibility or use subdomain
-        'secure' => true,     // or false
-        'httponly' => true,    // or false
-        'samesite' => 'None' // None || Lax  || Strict
-    );
-    setcookie('x-ms-routing-name', $current_cookie_value, $arr_cookie_options); 
-    
-    echo $current_cookie_value;
+class TestAB 
+{
+    public $path = '/';
+    public $domain = '.web-ab-experiments.azurewebsites.net';
+    public $secure = true;
+    public $httpOnly = true;
+    public $sameSite = 'None';
+
+    //Set user cookie
+    private function setUserCookie($cookieName, $cookieValue, $expires)
+    {
+        $arr_cookie_options = array (
+            'expires' => $expires,
+            'path' => $this->path,
+            'domain' => $this->domain, // leading dot for compatibility or use subdomain
+            'secure' => $this->secure,     // or false
+            'httponly' => $this->httpOnly,    // or false
+            'samesite' => $this->sameSite // None || Lax  || Strict
+        );
+        setcookie($cookieName, $cookieValue, $arr_cookie_options); 
+        return true;
+    }
+
+    //kill the cookie
+    public function killCookie($cookieName, $cookieValue)
+    {
+        %this->setUserCookie($cookieName, $cookieValue, time() - 3600);
+    }
+
+    //Keep cookie alive
+    public function keepAliveCookie($cookieName, $cookieValue)
+    {
+        $this->setUserCookie($cookieName, $cookieValue, time() + 60*60*24*365);
+        $_SESSION['renewed'] = 1;
+    }
+
 }
 
+if (!isset($_SESSION)) { session_start(); }
 
+if (!isset($_SESSION['renewed']) && ($_SESSION['renewed'] != 1))
+{
+    $cookieName = 'x-ms-routing-name';
+    $cookieValue = $_COOKIE['x-ms-routing-name'];
 
+    $testAb = new TestAB();
+    $testAb->killCookie($cookieName, $cookieValue);
+    $testAb->keepAliveCookie($cookieName, $cookieValue);
+}
 ?>
 <html lang="en">
 <head>
