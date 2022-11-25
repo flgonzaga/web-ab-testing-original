@@ -2,8 +2,8 @@
 if (isset($_COOKIE['x-ms-routing-name'])) {
     $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
-    // setcookie("x-ms-routing-name", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], false, false);
-    // setcookie("x-ms-routing-name-test", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], false, false);
+    setcookie("x-ms-routing-name", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], false, false);
+    setcookie("x-ms-routing-name-test", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], false, false);
     
     echo $current_cookie_value;
 }
