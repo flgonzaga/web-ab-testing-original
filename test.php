@@ -1,48 +1,7 @@
 <?php
-
-class TestAB 
-{
-    public $path = '/';
-    public $domain = '.web-ab-experiments.azurewebsites.net';
-    public $secure = true;
-    public $httpOnly = true;
-    public $sameSite = 'None';
-
-    //Set user cookie
-    private function setUserCookie($cookieName, $cookieValue, $expires)
-    {
-        $arr_cookie_options = array (
-            'expires' => $expires,
-            'path' => $this->path,
-            'domain' => $this->domain, // leading dot for compatibility or use subdomain
-            'secure' => $this->secure,     // or false
-            'httponly' => $this->httpOnly,    // or false
-            'samesite' => $this->sameSite // None || Lax  || Strict
-        );
-        setcookie($cookieName, $cookieValue, $arr_cookie_options); 
-        echo 'setUserCookie <br />';
-    }
-
-    //kill the cookie
-    public function killCookie($cookieName, $cookieValue)
-    {
-        $this->setUserCookie($cookieName, $cookieValue, time() - 3600);
-        echo 'kill <br />';
-    }
-
-    //Keep cookie alive
-    public function keepAliveCookie($cookieName, $cookieValue)
-    {
-        $this->setUserCookie($cookieName, $cookieValue, time() + 60*60*24*365);
-        $_SESSION['renewed'] = 1;
-        echo 'keep alive <br />';
-    }
-
-}
-
 if (!isset($_SESSION)) { session_start(); }
 
-if (!isset($_SESSION) && ($_SESSION['renewed'] != 1))
+if (isset($_SESSION) && ($_SESSION['renewed'] != 1))
 {
     $cookieName = 'x-ms-routing-name';
     $cookieValue = $_COOKIE['x-ms-routing-name'];
