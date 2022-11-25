@@ -1,12 +1,14 @@
 <?php
-if (isset($_COOKIE['x-ms-routing-name'])) {
-    $current_cookie_value = $_COOKIE['x-ms-routing-name'];
+// if (isset($_COOKIE['x-ms-routing-name'])) {
+    // $current_cookie_value = $_COOKIE['x-ms-routing-name'];
+    $current_cookie_value = 'self';
 
-    setcookie("x-ms-routing-name", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], true, true);
-    setcookie("x-ms-routing-name-test", $current_cookie_value, strtotime( '+365 days' ), "/", "." . $_SERVER['SERVER_NAME'], true, true);
+    // setcookie("x-ms-routing-name", $current_cookie_value, strtotime( '+365 days' ), "/", ".web-ab-experiments.azurewebsites.net", 1, 1);
+    // setcookie("x-ms-routing-name-test", $current_cookie_value, strtotime( '+365 days' ), "/", ".web-ab-experiments.azurewebsites.net", 1, 1);
     
+    header("Set-Cookie: x-ms-routing-name=self; expires=Fri, 23-Nov-25 14:39:58 GMT; Path=/; Secure; HtttpOnly; samesite=None");
     echo $current_cookie_value;
-}
+// }
 
 ?>
 <html lang="en">
