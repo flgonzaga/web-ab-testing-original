@@ -20,13 +20,14 @@ class TestAB
             'samesite' => $this->sameSite // None || Lax  || Strict
         );
         setcookie($cookieName, $cookieValue, $arr_cookie_options); 
-        return true;
+        echo 'setUserCookie <br />';
     }
 
     //kill the cookie
     public function killCookie($cookieName, $cookieValue)
     {
         $this->setUserCookie($cookieName, $cookieValue, time() - 3600);
+        echo 'kill <br />';
     }
 
     //Keep cookie alive
@@ -34,6 +35,7 @@ class TestAB
     {
         $this->setUserCookie($cookieName, $cookieValue, time() + 60*60*24*365);
         $_SESSION['renewed'] = 1;
+        echo 'keep alive <br />';
     }
 
 }
@@ -48,6 +50,7 @@ if (!isset($_SESSION) && ($_SESSION['renewed'] != 1))
     $testAb = new TestAB();
     $testAb->killCookie($cookieName, $cookieValue);
     $testAb->keepAliveCookie($cookieName, $cookieValue);
+    echo 'passed here';
 }
 ?>
 <html lang="en">
