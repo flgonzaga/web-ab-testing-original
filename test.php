@@ -40,7 +40,7 @@ class TestAB
 
 if (!isset($_SESSION)) { session_start(); }
 
-if (!isset($_SESSION['renewed']) && ($_SESSION['renewed'] != 1))
+if (!isset($_SESSION) && ($_SESSION['renewed'] != 1))
 {
     $cookieName = 'x-ms-routing-name';
     $cookieValue = $_COOKIE['x-ms-routing-name'];
