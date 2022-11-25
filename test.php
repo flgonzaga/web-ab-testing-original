@@ -2,6 +2,7 @@
 if (isset($_COOKIE['x-ms-routing-name'])) {
     $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
+    //kill original cookie
     $arr_cookie_options = array (
         'expires' => time() - 3600,
         'path' => '/',
@@ -11,6 +12,17 @@ if (isset($_COOKIE['x-ms-routing-name'])) {
         'samesite' => 'None' // None || Lax  || Strict
     );
     setcookie('x-ms-routing-name', 'self', $arr_cookie_options); 
+    
+    //Create new cookie
+    $arr_cookie_options = array (
+        'expires' => time() + 60*60*24*365,
+        'path' => '/',
+        'domain' => '.web-ab-experiments.azurewebsites.net', // leading dot for compatibility or use subdomain
+        'secure' => true,     // or false
+        'httponly' => true,    // or false
+        'samesite' => 'None' // None || Lax  || Strict
+    );
+    setcookie('x-ms-routing-name', $current_cookie_value, $arr_cookie_options); 
     
     echo $current_cookie_value;
 }
