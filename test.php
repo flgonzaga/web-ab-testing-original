@@ -46,11 +46,38 @@ if (!isset($_SESSION) && ($_SESSION['renewed'] != 1))
 {
     $cookieName = 'x-ms-routing-name';
     $cookieValue = $_COOKIE['x-ms-routing-name'];
+    $path = '/';
+    $domain = '.web-ab-experiments.azurewebsites.net';
+    $secure = true;
+    $httpOnly = true;
+    $sameSite = 'None';
 
-    $testAb = new TestAB();
-    $testAb->killCookie($cookieName, $cookieValue);
-    $testAb->keepAliveCookie($cookieName, $cookieValue);
-    echo 'passed here';
+    //killing the original cookie
+    $arr_cookie_options = array (
+        'expires' => time() - 3600,
+        'path' => $path,
+        'domain' => $domain, // leading dot for compatibility or use subdomain
+        'secure' => $secure,     // or false
+        'httponly' => $httpOnly,    // or false
+        'samesite' => $sameSite // None || Lax  || Strict
+    );
+    setcookie($cookieName, $cookieValue, $arr_cookie_options);
+    echo 'killing cookie';
+
+    //Create cookie with another time
+    $arr_cookie_options = array (
+        'expires' => time() + 60*60*24*365,
+        'path' => $path,
+        'domain' => $domain, // leading dot for compatibility or use subdomain
+        'secure' => $secure,     // or false
+        'httponly' => $httpOnly,    // or false
+        'samesite' => $sameSite // None || Lax  || Strict
+    );
+    setcookie($cookieName, $cookieValue, $arr_cookie_options);
+    echo 'Create cookie with another time';
+
+    $_SESSION['renewed'] = 1;
+
 }
 ?>
 <html lang="en">
