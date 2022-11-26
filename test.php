@@ -1,37 +1,30 @@
 <?php
-if (isset($_COOKIE['x-ms-routing-name'])) 
-{
-    $cookieName = 'x-ms-routing-name';
-    $cookieValue = $_COOKIE['x-ms-routing-name'];
-    $path = '/';
-    $domain = '.web-ab-experiments.azurewebsites.net';
-    $secure = true;
-    $httpOnly = true;
-    $sameSite = 'None';
+if (isset($_COOKIE['x-ms-routing-name'])) {
+    $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
-    //killing the original cookie
+    //kill original cookie
     $arr_cookie_options = array (
         'expires' => time() - 3600,
-        'path' => $path,
-        'domain' => $domain, // leading dot for compatibility or use subdomain
-        'secure' => $secure,     // or false
-        'httponly' => $httpOnly,    // or false
-        'samesite' => $sameSite // None || Lax  || Strict
+        'path' => '/',
+        'domain' => '.web-ab-experiments.azurewebsites.net', // leading dot for compatibility or use subdomain
+        'secure' => true,     // or false
+        'httponly' => true,    // or false
+        'samesite' => 'None' // None || Lax  || Strict
     );
-    setcookie($cookieName, $cookieValue, $arr_cookie_options);
-    echo 'killing cookie';
+    setcookie('x-ms-routing-name', 'self', $arr_cookie_options); 
 
-    //Create cookie with another time
+    //Create new cookie
     $arr_cookie_options = array (
         'expires' => time() + 60*60*24*365,
-        'path' => $path,
-        'domain' => $domain, // leading dot for compatibility or use subdomain
-        'secure' => $secure,     // or false
-        'httponly' => $httpOnly,    // or false
-        'samesite' => $sameSite // None || Lax  || Strict
+        'path' => '/',
+        'domain' => '.web-ab-experiments.azurewebsites.net', // leading dot for compatibility or use subdomain
+        'secure' => true,     // or false
+        'httponly' => true,    // or false
+        'samesite' => 'None' // None || Lax  || Strict
     );
-    setcookie($cookieName, $cookieValue, $arr_cookie_options);
-    echo 'Create cookie with another time';
+    setcookie('x-ms-routing-name', $current_cookie_value, $arr_cookie_options); 
+
+    echo $current_cookie_value;
 }
 ?>
 <html lang="en">
