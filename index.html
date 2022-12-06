@@ -12,28 +12,6 @@
         gtag('js', new Date());
 
         gtag('config', 'G-7NYMGM621S');
-
-        function setCookie(cName, cValue, expDays) 
-        {
-            let date = new Date();
-            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + date.toUTCString();
-            document.cookie = cName + "=" + cValue + "; " + expires + "; domain=." + location.hostname + "; path=/";
-        }
-
-        function getCookie(cName) 
-        {
-            const name = cName + "=";
-            const cDecoded = decodeURIComponent(document.cookie); //to be careful
-            const cArr = cDecoded .split('; ');
-            let res;
-            cArr.forEach(val => {
-                if (val.indexOf(name) === 0) res = val.substring(name.length);
-            })
-            return res;
-        }
-        
-        // setCookie('x-ms-routing-name', getCookie('x-ms-routing-name'), 365);
     </script>
 </head>
 <body>
@@ -72,5 +50,16 @@
     <h1>Hello World</h1>
     <p>Original version has been loaded.</p>
     <a href="page.html">Go to page</a>
+    <script>
+        
+        var data = new FormData();
+        data.append('request', 'ab');
+        // data.append('requiredkey', 'key');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'test.php', true);
+        xhr.send(data);
+
+    </script>
 </body>
 </html>
