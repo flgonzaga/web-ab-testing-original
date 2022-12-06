@@ -40,10 +40,18 @@
     <script>
         function showHint(str) 
         {
-            
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "test.php");
-            xmlhttp.send();
+            var data = new FormData();
+            data.append('request', 'ab');
+            // data.append('requiredkey', 'key');
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'test.php', true);
+            xhr.onload = function () {
+                // do something to response
+                console.log(this.responseText);
+            };
+            xhr.send(data);
+
             
         }
     </script>
