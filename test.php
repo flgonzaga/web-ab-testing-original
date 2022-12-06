@@ -1,5 +1,6 @@
 <?php
-if (isset($_COOKIE['x-ms-routing-name'])) {
+if (!isset($_COOKIE['x-ms-trigger'])) {
+    $_COOKIE['x-ms-trigger'] = 1;
     $current_cookie_value = $_COOKIE['x-ms-routing-name'];
 
     //kill original cookie
@@ -11,7 +12,7 @@ if (isset($_COOKIE['x-ms-routing-name'])) {
         'httponly' => true,    // or false
         'samesite' => 'None' // None || Lax  || Strict
     );
-    setcookie('x-ms-routing-name', 'self', $arr_cookie_options); 
+    setcookie('x-ms-routing-name', $current_cookie_value, $arr_cookie_options); 
 
     //Create new cookie
     $arr_cookie_options = array (
@@ -26,6 +27,7 @@ if (isset($_COOKIE['x-ms-routing-name'])) {
 
     echo $current_cookie_value;
 }
+
 ?>
 <html lang="en">
 <head>
