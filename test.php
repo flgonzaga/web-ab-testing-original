@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['request']) && ($_POST['request'] == 'ab')))
+if (isset($_POST['request']) && ($_POST['request'] == 'ab'))
 {
     if (!isset($_COOKIE['x-ms-trigger'])) {
         $_COOKIE['x-ms-trigger'] = 1;
